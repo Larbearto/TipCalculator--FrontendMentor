@@ -6,17 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        sm: '412px',
-        mg: '600px',
-        lg: '1000px',
-        xl: '1440px'
-      },
+      screens: { sm: '448px', md: '600px', lg: '920px', xl: '1440px' },
       colors: {
         StrongCyan: '#26C0AB',
+        GrayishCyan: '#7F9C9F',
         VeryDarkCyan: '#00494D',
         DirtyGreen: '#5E7A7D',
-        MuddyGreen: '#7F9C9F',
         SoftGreen: '#C5E4E7',
         SuperLightGray: '#F4FAFA',
         Whitish: '#ecf0f3',

@@ -9,6 +9,13 @@
     @apply font-SpaceMono bg-SoftGreen;
   }
 }
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
 
 @layer components {
   div {
@@ -16,6 +23,6 @@
   }
 
   button {
-    @apply bg-VeryDarkCyan text-white text-2xl font-semibold font-SpaceMono py-2 rounded-lg;
+    @apply bg-VeryDarkCyan text-white text-2xl md:text-base md:rounded-md md:py-1 lg:text-lg lg:font-semibold font-SpaceMono py-2 rounded-lg;
   }
 }

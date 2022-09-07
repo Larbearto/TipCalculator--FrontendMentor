@@ -1,4 +1,4 @@
-import { atom } from 'recoil'
+import { atom } from 'recoil';
 
 export const billState = atom({
   key: 'billState',
@@ -14,5 +14,10 @@ export const peopleState = atom({
 
 export const tipPercentState = atom({
   key: 'tipPercentState',
+  default: ''
+})
+
+export const customTipState = atom({
+  key: 'customTipState',
   default: ''
 })

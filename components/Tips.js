@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { tipPercentState } from '../atoms/inputAtoms';
+import { customTipState, tipPercentState } from '../atoms/inputAtoms';
 
 function Tips() {
   const [tipPercent, setTipPercent] = useRecoilState(tipPercentState)
+  const [customTip, setCustomTip] = useRecoilState(customTipState)
 
   const handleTipClick = (e) => {
     setTipPercent(e.target.value)
@@ -11,11 +13,11 @@ function Tips() {
   console.log(tipPercent)
 
   return (
-    <div className='pt-10 m-1 '>
-      <div className='font-semibold tracking-tight opacity-70'>
+    <div className='space-y-3 '>
+      <div className='font-semibold md:text-xs lg:text-xs tracking-tight opacity-60'>
         Select Tip %
       </div>
-      <div className='grid grid-cols-2 gap-4 py-1.5 m-3'>
+      <div className='grid grid-cols-2 gap-4 m-2 md:grid-cols-3 md:gap-2 md:m-0 '>
         <button value={0.05} onClick={handleTipClick}>
           5%
         </button>
@@ -32,12 +34,13 @@ function Tips() {
           50%
         </button>
         <input
-          className='text-xl font-semibold text-center rounded-lg bg-opacity-30 bg-SoftGreen placeholder-DirtyGreen text-DarkGrayGreen hover:ring-4 hover:ring-Aqua focus:outline-StrongCyan'
+          className='text-xl md:text-base font-semibold text-center rounded-lg bg-opacity-30 bg-SoftGreen placeholder-DirtyGreen text-DarkGrayGreen hover:ring-4 hover:ring-Aqua focus:outline-StrongCyan'
           placeholder='Custom'
           type='number'
           id='customPercent'
           name='percent'
-          onChange={() => {}}
+          value={customTip}
+          onChange={(e) => setCustomTip(e.currentTarget.value)}
         />
       </div>
     </div>

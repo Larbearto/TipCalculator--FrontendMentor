@@ -11,21 +11,21 @@ function Bill() {
   console.log(bill)
 
   return (
-    <div className='flex-col m-2 space-y-2'>
-      <div className='flex'>
-        <label className='font-semibold tracking-wide text-md opacity-70'>
+    <div className=''>
+      <div className=''>
+        <label className='font-semibold tracking-wide text-base opacity-60 md:text-xs '>
           Bill
         </label>
       </div>
 
       <div className='flex justify-between py-1.5 '>
-        <div className='flex justify-center w-full bg-opacity-30 rounded-xl bg-SoftGreen'>
-          <span className='text-2xl opacity-30'>$</span>
+        <div className='flex justify-center w-full bg-opacity-30 rounded-xl bg-SoftGreen md:m-1 lg:m-0'>
+          <span className='text-2xl md:text-sm lg:text-xl opacity-30'>$</span>
 
           <input
             type='number'
             placeholder='0'
-            className='text-xl font-semibold text-right font-SpaceMono text-VeryDarkCyan bg-SoftGreen bg-opacity-10'
+            className='text-xl md:text-sm lg:text-lg font-semibold text-right font-SpaceMono text-VeryDarkCyan bg-SoftGreen bg-opacity-10'
             value={bill}
             onChange={handleBill}
           />

@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { billState, peopleState, tipPercentState } from '../atoms/inputAtoms';
+import {
+  billState,
+  customTipState,
+  peopleState,
+  tipPercentState,
+} from '../atoms/inputAtoms';
 
 function Results() {
   const [bill, setBill] = useRecoilState(billState)
   const [people, setPeople] = useRecoilState(peopleState)
   const [tipPercent, setTipPercent] = useRecoilState(tipPercentState)
+  const [customTip, setCustomTip] = useRecoilState(customTipState)
 
   const [tipAmount, setTipAmount] = useState()
+  const [tipCustom, setTipCustom] = useState()
 
   const [total, setTotal] = useState()
   const [totalSplit, setTotalSplit] = useState()
@@ -29,6 +36,10 @@ function Results() {
     const tipAmount = billFloat * tipPercentFloat
     return setTipAmount(tipAmount)
   }, [tipPercent, billFloat, tipPercentFloat, setTipAmount])
+  
+  useEffect(() => {
+    const tipCustom = 
+  })
 
   useEffect(() => {
     const total = billFloat + tipAmount
@@ -40,51 +51,62 @@ function Results() {
     return setTotalSplit(totalSplit)
   }, [peopleFloat, total, setTotalSplit])
 
+  useEffect(() => {}, [])
+
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
   })
 
   return (
-    <div className='flex flex-col rounded-xl bg-VeryDarkCyan'>
-      <div className='flex flex-col m-6'>
-        <div className='flex justify-between pt-4'>
-          <div className='flex flex-col font-semibold '>
-            <p className='text-white text-small '>Tip Amount </p>
-            <p className='text-xs text-StrongCyan opacity-60'>/ person</p>
+    <div className='m-7 md:m-3 md:w-1/2 md:mt-4 lg:my-4 lg:mx-3 lg:w-96 rounded-xl bg-VeryDarkCyan'>
+      <div className='p-5'>
+        <div className='md:m-5 md:pt-5 lg:m-4 space-y-7 md:space-y-8'>
+          <div className='flex justify-between'>
+            <div className='flex flex-col font-semibold '>
+              <p className='text-white text-small md:text-xs lg:text-xs '>
+                Tip Amount{' '}
+              </p>
+              <p className='text-xs md:text-[10px] text-StrongCyan opacity-60'>
+                / person
+              </p>
+            </div>
+
+            {tipAmount ? (
+              <div className='text-3xl font-semibold text-StrongCyan'>
+                {formatter.format(tipAmount)}
+              </div>
+            ) : (
+              <div className='text-3xl md:text-xl lg:text-3xl font-semibold text-StrongCyan '>
+                $0.00
+              </div>
+            )}
+          </div>
+          <div className='flex justify-between'>
+            <div className='font-semibold text-white '>
+              <p className='text-sm md:text-xs lg:text-xs'>Total</p>
+              <p className='text-xs md:text-[10px] font-semibold text-StrongCyan opacity-60'>
+                / person
+              </p>
+            </div>
+            {totalSplit ? (
+              <div className='text-3xl font-semibold text-StrongCyan font-SpaceMono'>
+                {formatter.format(totalSplit)}
+              </div>
+            ) : (
+              <div className='text-3xl md:text-xl lg:text-3xl md:mb-16 font-semibold text-StrongCyan'>
+                $0.00
+              </div>
+            )}
           </div>
 
-          {tipAmount ? (
-            <div className='text-3xl font-semibold text-StrongCyan'>
-              {formatter.format(tipAmount)}
-            </div>
-          ) : (
-            <div className='text-3xl font-semibold text-StrongCyan '>$0.00</div>
-          )}
+          <button
+            className='w-full font-bold text-lg md:text-sm lg:text-base lg:py-2 tracking-wider uppercase bg-StrongCyan text-VeryDarkCyan'
+            onClick={handleReset}
+          >
+            reset
+          </button>
         </div>
-        <div className='flex justify-between pt-6'>
-          <div className='font-semibold text-white '>
-            <p className='text-sm'>Total</p>
-            <p className='text-xs font-semibold text-StrongCyan opacity-60'>
-              / person
-            </p>
-          </div>
-          {totalSplit ? (
-            <div className='text-3xl font-semibold text-StrongCyan font-SpaceMono'>
-              {formatter.format(totalSplit)}
-            </div>
-          ) : (
-            <div className='text-3xl font-semibold text-StrongCyan'>$0.00</div>
-          )}
-        </div>
-      </div>
-      <div className='flex items-center justify-center m-5'>
-        <button
-          className='w-full text-lg tracking-wider uppercase bg-StrongCyan text-VeryDarkCyan'
-          onClick={handleReset}
-        >
-          reset
-        </button>
       </div>
     </div>
   )
