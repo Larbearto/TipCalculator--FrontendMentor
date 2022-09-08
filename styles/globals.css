@@ -9,6 +9,7 @@
     @apply font-SpaceMono bg-SoftGreen;
   }
 }
+
 @layer base {
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
@@ -23,6 +24,10 @@
   }
 
   button {
-    @apply bg-VeryDarkCyan text-white text-2xl md:text-base md:rounded-md md:py-1 lg:text-lg lg:font-semibold font-SpaceMono py-2 rounded-lg;
+    @apply bg-VeryDarkCyan text-white text-2xl font-bold md:text-base md:rounded-md md:py-1 lg:text-lg lg:font-semibold   font-SpaceMono py-2 rounded-lg hover:bg-StrongCyan hover:text-VeryDarkCyan focus:outline-none active:bg-StrongCyan focus:ring focus:ring-StrongCyan focus:bg-MatteAqua focus:text-VeryDarkCyan;
+  }
+
+  .inputs {
+    @apply hover:ring-2 hover:ring-StrongCyan active:ring active:ring-StrongCyan;
   }
 }

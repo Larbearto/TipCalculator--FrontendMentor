@@ -16,30 +16,29 @@ const People = (props) => {
   return (
     <div className='flex flex-col space-y-2 '>
       <div className='flex justify-between items-center'>
-        <label className='text-xs md:text-[8px] lg:text-[11px] font-semibold tracking-wide opacity-60'>
+        <label className='text-xs md:text-[10px] font-semibold tracking-wide opacity-60'>
           Number of People
         </label>
         {!people && tipPercent && bill && (
-          <div className='pl-10 text-sm md:text-[8px] lg:text-[11px] font-semibold text-red-700 opacity-70 tracking-wider'>
+          <div className='pl-10 text-sm md:text-[10px] font-semibold  text-red-700 opacity-70'>
             {"Can't be zero"}
           </div>
         )}
       </div>
 
-      <div className='bg-SoftGreen rounded-xl border-4 border-purple-400'>
+      <div className='inputs bg-SoftGreen rounded-xl p-1'>
         <div className='flex ml-2'>
-          <span className='flex md:items-center border-4 border-orange-400 '>
-            <UserIcon className='h-5 md:h-3 text-DirtyGreen' />
+          <span className='flex items-center'>
+            <UserIcon className='h-5 md:h-3 lg:h-4 text-DirtyGreen' />
           </span>
-          <div className='border-4-border-black'>
-            <input
-              type='number'
-              placeholder='0'
-              value={people}
-              className='w-11/12 text-2xl md:text-base font-semibold text-right text-VeryDarkCyan bg-SoftGreen bg-opacity-10 '
-              onChange={handlePeople}
-            />
-          </div>
+
+          <input
+            type='number'
+            placeholder='0'
+            value={people}
+            className='w-11/12 text-2xl md:text-base font-semibold text-right text-VeryDarkCyan bg-SoftGreen bg-opacity-10 outline-none'
+            onChange={handlePeople}
+          />
         </div>
       </div>
     </div>

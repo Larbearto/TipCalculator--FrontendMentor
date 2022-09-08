@@ -15,7 +15,6 @@ function Results() {
   const [customTip, setCustomTip] = useRecoilState(customTipState)
 
   const [tipAmount, setTipAmount] = useState()
-  const [tipCustom, setTipCustom] = useState()
 
   const [total, setTotal] = useState()
   const [totalSplit, setTotalSplit] = useState()
@@ -36,10 +35,6 @@ function Results() {
     const tipAmount = billFloat * tipPercentFloat
     return setTipAmount(tipAmount)
   }, [tipPercent, billFloat, tipPercentFloat, setTipAmount])
-  
-  useEffect(() => {
-    const tipCustom = 
-  })
 
   useEffect(() => {
     const total = billFloat + tipAmount
@@ -51,7 +46,10 @@ function Results() {
     return setTotalSplit(totalSplit)
   }, [peopleFloat, total, setTotalSplit])
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    const tipCustom = customTip / 100
+    setTipPercent(tipCustom)
+  }, [customTip, setTipPercent])
 
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -101,7 +99,7 @@ function Results() {
           </div>
 
           <button
-            className='w-full font-bold text-lg md:text-sm lg:text-base lg:py-2 tracking-wider uppercase bg-StrongCyan text-VeryDarkCyan'
+            className='resetBtn w-full tracking-widest font-bold text-lg md:text-sm lg:text-base uppercase bg-StrongCyan text-VeryDarkCyan hover:bg-MatteAqua '
             onClick={handleReset}
           >
             reset

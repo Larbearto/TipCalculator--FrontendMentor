@@ -18,14 +18,14 @@ function Bill() {
         </label>
       </div>
 
-      <div className='flex justify-between py-1.5 '>
-        <div className='flex justify-center w-full bg-opacity-30 rounded-xl bg-SoftGreen md:m-1 lg:m-0'>
+      <div className=' flex justify-between'>
+        <div className='inputs flex justify-center w-full rounded-xl bg-SoftGreen md:m-1 lg:m-0 p-1'>
           <span className='text-2xl md:text-sm lg:text-xl opacity-30'>$</span>
 
           <input
             type='number'
             placeholder='0'
-            className='text-xl md:text-sm lg:text-lg font-semibold text-right font-SpaceMono text-VeryDarkCyan bg-SoftGreen bg-opacity-10'
+            className='text-xl md:text-sm lg:text-lg font-semibold text-right font-SpaceMono text-VeryDarkCyan bg-SoftGreen bg-opacity-10 outline-none'
             value={bill}
             onChange={handleBill}
           />

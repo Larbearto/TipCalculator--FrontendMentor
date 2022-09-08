@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { customTipState, tipPercentState } from '../atoms/inputAtoms';
@@ -10,7 +9,6 @@ function Tips() {
   const handleTipClick = (e) => {
     setTipPercent(e.target.value)
   }
-  console.log(tipPercent)
 
   return (
     <div className='space-y-3 '>
@@ -34,7 +32,7 @@ function Tips() {
           50%
         </button>
         <input
-          className='text-xl md:text-base font-semibold text-center rounded-lg bg-opacity-30 bg-SoftGreen placeholder-DirtyGreen text-DarkGrayGreen hover:ring-4 hover:ring-Aqua focus:outline-StrongCyan'
+          className='text-xl md:text-base text-veryDarkCyan font-semibold text-center rounded-lg bg-opacity-30 bg-SoftGreen placeholder-DirtyGreen text-DarkGrayGreen  focus:outline-StrongCyan outline-none hover:bg-StrongCyan focus:bg-MatteAqua focus:text-VeryDarkCyan '
           placeholder='Custom'
           type='number'
           id='customPercent'
